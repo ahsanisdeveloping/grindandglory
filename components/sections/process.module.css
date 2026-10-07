@@ -1,0 +1,381 @@
+.heading {
+  margin-bottom: clamp(2.5rem, 5vw, 5rem);
+}
+
+.title {
+  max-width: 23ch;
+  font-size: clamp(3rem, 5.4vw, 6rem);
+  line-height: 1.12;
+}
+
+.journey {
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.sheet {
+  position: sticky;
+  top: calc(104px + var(--step-index) * 64px);
+  z-index: calc(var(--step-index) + 1);
+  margin-bottom: 1.5rem;
+  border: var(--border-light);
+  border-radius: var(--radius-media);
+  background: var(--color-ivory);
+  box-shadow: 0 -8px 32px rgb(53 20 49 / 4%);
+  overflow: hidden;
+}
+
+.sheet:nth-child(2) {
+  background: color-mix(in srgb, var(--color-surface) 65%, var(--color-ivory));
+}
+
+.sheet:nth-child(3) {
+  background: var(--color-surface);
+}
+
+.sheet:last-child {
+  margin-bottom: 0;
+}
+
+.sheetHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 64px;
+  padding: 1rem clamp(1.5rem, 3vw, 3rem);
+  border-bottom: var(--border-light);
+  font-size: 0.875rem;
+}
+
+.sheetLabel {
+  display: flex;
+  gap: 1.25rem;
+  align-items: baseline;
+  font-weight: 500;
+}
+
+.number {
+  color: var(--color-glory-muted);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.75rem;
+}
+
+.sheetHeader p {
+  color: var(--color-glory-muted);
+}
+
+.sheetContent {
+  display: grid;
+  grid-template-columns: 6fr 5fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+  padding: clamp(1.5rem, 3vw, 3rem);
+  min-height: 340px;
+}
+
+.copy {
+  position: relative;
+  min-width: 0;
+}
+
+.copy h3 {
+  font-family: var(--font-alfa-slab), Georgia, serif;
+  font-size: clamp(3rem, 6.8vw, 7rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.05em;
+}
+
+.copy p {
+  max-width: 36ch;
+  margin-top: 1.25rem;
+  color: var(--color-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.direction {
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-top: 1.5rem;
+  stroke-width: 1;
+}
+
+.motif {
+  position: relative;
+  min-width: 0;
+  min-height: 270px;
+  display: grid;
+  align-items: center;
+  padding-block: 1rem;
+}
+
+.repeat {
+  font-family: var(--font-alfa-slab), Georgia, serif;
+  font-size: clamp(2.5rem, 4.5vw, 4.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.055em;
+}
+
+.repeat > span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.repeat > span:first-child {
+  color: var(--color-glory-muted);
+}
+
+.repeat > span:nth-child(2) {
+  margin-left: 8%;
+  color: var(--color-glory-muted);
+}
+
+.repeat > span:last-child {
+  margin-left: 16%;
+}
+
+.repeat svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.selection {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  align-items: center;
+  padding-inline: 0.75rem;
+}
+
+.selectionPiece {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  aspect-ratio: 0.65;
+  border: var(--border-light);
+  border-radius: var(--radius-media);
+  background: var(--color-ivory);
+  color: var(--color-glory-muted);
+  font-size: 0.75rem;
+  transform: rotate(-9deg) translateY(10px);
+}
+
+.selectionPiece svg {
+  width: 40%;
+  height: auto;
+  stroke-width: 1;
+}
+
+.selectionPiece:nth-child(2) {
+  position: relative;
+  z-index: 1;
+  background: var(--color-glory);
+  color: var(--color-ivory);
+  transform: translateY(-12px);
+  box-shadow: 0 12px 24px rgb(53 20 49 / 12%);
+}
+
+.selectionPiece:last-child {
+  transform: rotate(9deg) translateY(10px);
+}
+
+.clarity {
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  border-left: 2px solid var(--color-glory);
+}
+
+.clarityIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: 1rem;
+  stroke-width: 1;
+}
+
+.clearWord {
+  display: block;
+  font-family: var(--font-alfa-slab), Georgia, serif;
+  font-size: clamp(2.75rem, 4.8vw, 4.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.055em;
+}
+
+.details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  margin-top: 1.25rem;
+  color: var(--color-glory-muted);
+  font-size: 0.8125rem;
+}
+
+.details > span {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.details svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.achievement {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.crown {
+  width: clamp(8rem, 14vw, 13rem);
+  height: auto;
+  fill: var(--color-glory);
+  stroke: var(--color-ivory);
+  stroke-width: 0.75;
+}
+
+.podium {
+  width: 70%;
+  height: 0.625rem;
+  background: var(--color-glory);
+  margin-top: -0.5rem;
+  box-shadow: 0 0.75rem 0 var(--color-border);
+}
+
+.nextChapter {
+  margin-top: 2.25rem;
+  font-size: 1.125rem;
+  letter-spacing: -0.04em;
+}
+
+.handoff {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding-top: 2rem;
+  font-size: clamp(1rem, 1.7vw, 1.5rem);
+  letter-spacing: -0.035em;
+}
+
+.handoff span:last-child {
+  font-weight: 600;
+}
+
+.handoff svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+@media (max-width: 1023px) {
+  .sheetContent {
+    gap: 1.5rem;
+    min-height: 300px;
+  }
+
+  .copy h3 {
+    font-size: clamp(2.75rem, 6vw, 4.5rem);
+  }
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: clamp(2.25rem, 8vw, 3.75rem);
+  }
+
+  .sheet {
+    position: relative;
+    top: auto;
+    margin-bottom: 1rem;
+    box-shadow: none;
+  }
+
+  .sheetHeader {
+    min-height: 56px;
+    padding: 1rem 1.25rem;
+    font-size: 0.75rem;
+  }
+
+  .sheetLabel {
+    gap: 0.75rem;
+  }
+
+  .sheetContent {
+    grid-template-columns: 1fr;
+    padding: 1.25rem;
+    gap: 1.25rem;
+    min-height: 0;
+  }
+
+  .copy h3 {
+    font-size: clamp(2.75rem, 12vw, 4rem);
+  }
+
+  .copy p {
+    margin-top: 0.75rem;
+    font-size: 0.9375rem;
+  }
+
+  .direction {
+    position: absolute;
+    right: 0;
+    top: 0.5rem;
+    margin: 0;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .motif {
+    min-height: 200px;
+    padding: 1.25rem 0.5rem;
+    border-top: var(--border-light);
+  }
+
+  .repeat {
+    font-size: clamp(2rem, 9vw, 3.25rem);
+  }
+
+  .selection {
+    width: 100%;
+    max-width: 300px;
+    margin-inline: auto;
+  }
+
+  .selectionPiece {
+    font-size: 0.625rem;
+    gap: 1rem;
+  }
+
+  .clarity {
+    padding-left: 1.25rem;
+  }
+
+  .clearWord {
+    font-size: 2.75rem;
+  }
+
+  .crown {
+    width: 9rem;
+  }
+
+  .nextChapter {
+    font-size: 1rem;
+  }
+
+  .handoff {
+    gap: 0.75rem;
+    padding-top: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sheet {
+    position: relative;
+    top: auto;
+  }
+}
