@@ -2,9 +2,8 @@ export const site = {
   name: "Grind&Glory",
   description:
     "We do the grind. You get the glory. Gaming accounts, considered collections, and hard-earned progression. Discover Grind&Glory.",
-  // Replace with your verified Eldorado seller URL. The fallback is labelled honestly.
-  storeUrl: "https://www.eldorado.gg/",
-  storeUrlIsPlaceholder: true,
+  storeUrl: "https://www.eldorado.gg/users/grindandglory/shop/Account",
+  storeUrlIsPlaceholder: false,
   navigation: [
     { label: "About", href: "#about" },
     { label: "Games", href: "#games" },

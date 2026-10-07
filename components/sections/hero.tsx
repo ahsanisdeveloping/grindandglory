@@ -4,7 +4,7 @@ import { GrainGradient } from "@/components/ui/grain-gradient";
 import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { StoreLink } from "@/components/ui/store-link";
-import { Typewriter } from "@/components/ui/typewriter";
+import { HeroHeadline } from "./hero-headline";
 import { site } from "@/data/site";
 import styles from "./hero.module.css";
 
@@ -33,29 +33,7 @@ export function Hero() {
           <Eyebrow>{site.hero.eyebrow}</Eyebrow>
         </div>
         <div className={`hero-stage ${styles.stage}`}>
-          <h1 id="hero-title" className={`hero-title ${styles.title}`}>
-            <span className={`hero-title__group ${styles.group}`} data-animate="hero-title">
-              <span className={`hero-title__intro ${styles.intro}`}>We do the</span>
-              <Typewriter
-                className={`hero-title__display ${styles.display}`}
-                text="GRIND."
-                delay={250}
-                speed={110}
-              />
-            </span>
-            <span
-              className={`hero-title__group hero-title__group--glory ${styles.group}`}
-              data-animate="hero-title"
-            >
-              <span className={`hero-title__intro ${styles.intro}`}>You get the</span>
-              <Typewriter
-                className={`hero-title__display ${styles.display}`}
-                text="GLORY."
-                delay={1000}
-                speed={110}
-              />
-            </span>
-          </h1>
+          <HeroHeadline />
         </div>
         <div className={`hero-bottom ${styles.bottom}`} data-animate="hero-copy">
           <p>{site.hero.copy}</p>

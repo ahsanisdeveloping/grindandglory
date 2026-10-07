@@ -107,7 +107,7 @@ test("reduced motion and JavaScript-free content stay usable", async ({
     .toHaveCount(12);
   await expect(page.locator(".hero .store-link")).toHaveAttribute(
     "href",
-    "https://www.eldorado.gg/",
+    "https://www.eldorado.gg/users/grindandglory/shop/Account",
   );
   await context.close();
 });

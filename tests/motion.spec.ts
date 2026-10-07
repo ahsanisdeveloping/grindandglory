@@ -77,6 +77,42 @@ test("hero types progressively and sections reveal on scroll", async ({ page }) 
   expect(errors).toEqual([]);
 });
 
+test("hero word pairs erase, cycle, and retain their mobile layout", async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 900 });
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.goto("/");
+  const title = page.locator("#hero-title");
+  const stage = page.locator(".hero-stage");
+  const initial = await stage.boundingBox();
+  const visibleWords = () => title.locator(".hero-title__display [data-letter]").evaluateAll(
+    (letters) => letters.filter((letter) => getComputedStyle(letter).opacity === "1")
+      .map((letter) => letter.textContent).join(""),
+  );
+  await expect.poll(visibleWords).toBe("GRIND.GLORY.");
+  await page.waitForFunction(() => {
+    const title = document.querySelector("#hero-title")!;
+    const visible = [...title.querySelectorAll("[data-letter]")]
+      .filter((letter) => getComputedStyle(letter).opacity === "1").length;
+    return title.getAttribute("data-cycle-index") === "0" && visible > 0 && visible < 12;
+  });
+  await expect(title).toHaveAttribute("data-cycle-index", "1");
+  await expect.poll(visibleWords).toBe("WORK.WINS.");
+  expect(await stage.boundingBox()).toEqual(initial);
+  await expect(title).toHaveAttribute("data-cycle-index", "2", { timeout: 6000 });
+  await expect.poll(visibleWords).toBe("PREP.EDGE.");
+  for (const [offset, words] of ["CLIMB.RANK.", "HUNT.LOOT.", "QUESTS.GEAR.", "LEVELS.POWER.", "HOURS.SKINS.", "BUILD.BOOST."].entries()) {
+    await expect(title).toHaveAttribute("data-cycle-index", String(offset + 3), { timeout: 6000 });
+    await expect.poll(visibleWords).toBe(words);
+    expect(await stage.boundingBox()).toEqual(initial);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+  }
+  await expect(title).toHaveAttribute("data-cycle-index", "0", { timeout: 6000 });
+  expect(await stage.boundingBox()).toEqual(initial);
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect.poll(visibleWords).toBe("GRIND.GLORY.");
+  await expect(title).toHaveAccessibleName(/We do the\s*GRIND\.\s*You get the\s*GLORY\./i);
+});
+
 test("reduced motion cancels active animations and keeps all content readable", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.goto("/", { waitUntil: "domcontentloaded" });
