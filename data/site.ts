@@ -9,7 +9,7 @@ export const site = {
     { label: "About", href: "#about" },
     { label: "Games", href: "#games" },
     { label: "Process", href: "#process" },
-    { label: "Why us", href: "#why-us" },
+    // { label: "Why us", href: "#why-us" },
   ],
   socials: [
     { label: "Instagram", href: null as string | null },

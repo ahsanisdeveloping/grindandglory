@@ -1,5 +1,49 @@
 import { expect, test } from "@playwright/test";
 
+for (const width of [375, 1440]) {
+  test(`navbar blends at the top and stays visible on scroll at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 1000 });
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.goto("/");
+    const header = page.locator(".site-header");
+    await expect(header).toHaveAttribute("data-scrolled", "false");
+    await expect(header).toHaveCSS("background-color", "rgba(0, 0, 0, 0)");
+    await page.locator("#games").scrollIntoViewIfNeeded();
+    await expect(header).toHaveAttribute("data-scrolled", "true");
+    expect((await header.boundingBox())!.y).toBeCloseTo(0, 0);
+    const nav = width < 1024
+      ? header.getByRole("button", { name: "Open navigation menu" })
+      : header.getByRole("navigation");
+    await expect(nav).toBeInViewport();
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await expect(header).toHaveAttribute("data-scrolled", "false");
+  });
+}
+
+test("section typewriters wait for view and brand words type in sequence", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.goto("/");
+  const words = page.locator("#brand-break-title > span");
+  const hidden = (elements: Element[]) => elements.every((element) => getComputedStyle(element).opacity === "0");
+  const visible = (elements: Element[]) => elements.every((element) => getComputedStyle(element).opacity === "1");
+  await expect.poll(() => words.locator("[data-letter]").evaluateAll(hidden)).toBe(true);
+  await expect.poll(() => page.locator("#grind-title [data-letter]").evaluateAll(hidden)).toBe(true);
+  await page.locator("#grind-title").scrollIntoViewIfNeeded();
+  await expect.poll(() => page.locator("#grind-title [data-letter]").evaluateAll(visible)).toBe(true);
+  await expect.poll(() => words.locator("[data-letter]").evaluateAll(hidden)).toBe(true);
+  await page.locator("#brand-break-title").scrollIntoViewIfNeeded();
+  await expect.poll(() => words.nth(0).locator("[data-letter]").evaluateAll(visible)).toBe(true);
+  expect(await words.nth(2).locator("[data-letter]").evaluateAll(hidden)).toBe(true);
+  await expect.poll(() => words.nth(1).locator("[data-letter]").evaluateAll(visible)).toBe(true);
+  await expect.poll(() => words.nth(2).locator("[data-letter]").evaluateAll(visible)).toBe(true);
+  await page.locator("#final-title").scrollIntoViewIfNeeded();
+  await expect.poll(() => page.locator("#final-title [data-letter]").evaluateAll(visible)).toBe(true);
+  await expect(page.locator("#final-title")).toHaveAccessibleName(/Ready for\s*THE GLORY\?/);
+  await page.locator("#hero-title").scrollIntoViewIfNeeded();
+  await page.locator("#brand-break-title").scrollIntoViewIfNeeded();
+  expect(await words.locator("[data-letter]").evaluateAll(visible)).toBe(true);
+});
+
 test("hero types progressively and sections reveal on scroll", async ({ page }) => {
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));

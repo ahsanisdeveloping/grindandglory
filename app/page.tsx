@@ -25,7 +25,7 @@ export default function Home() {
         <Games />
         <Process />
         <BrandBreak />
-        <WhyUs />
+        {/* <WhyUs /> */}
         <Marketplace />
         <FinalCTA />
       </main>

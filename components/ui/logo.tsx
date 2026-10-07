@@ -48,7 +48,7 @@ export function Logo({
         sizes="56px"
         className="logo__mark"
       />
-      <span className="logo__wordmark">Grind&Glory</span>
+      <span className="logo__wordmark relative top-[6px]">Grind&Glory</span>
     </a>
   );
 }

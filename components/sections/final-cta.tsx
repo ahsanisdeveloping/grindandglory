@@ -2,6 +2,7 @@ import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { BrandMark } from "@/components/ui/logo";
 import { StoreLink } from "@/components/ui/store-link";
+import { Typewriter } from "@/components/ui/typewriter";
 
 export function FinalCTA() {
   return (
@@ -10,7 +11,7 @@ export function FinalCTA() {
         <div>
           <h2 id="final-title" data-animate="final-title">
             <span>Ready for</span>
-            <span className="display-word">THE GLORY?</span>
+            <Typewriter className="display-word" text="THE GLORY?" startOnView delay={250} />
           </h2>
           <p>
             We’ve done the grinding.

@@ -1,6 +1,7 @@
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { GrindStories } from "@/components/sections/grind-stories";
+import { Typewriter } from "@/components/ui/typewriter";
 import styles from "./grind.module.css";
 
 export function Grind() {
@@ -13,7 +14,7 @@ export function Grind() {
             id="grind-title"
             data-animate="text-reveal"
           >
-            Good things take <span className="display-word">grind.</span>
+            Good things take <Typewriter className="display-word" text="grind." startOnView delay={200} />
           </h2>
           <p className="section-intro">
             Behind every standout account, there’s something you can’t skip.

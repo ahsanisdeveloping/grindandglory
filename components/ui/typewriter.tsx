@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, type ComponentPropsWithoutRef } from "react";
-import { stagger, useAnimate } from "framer-motion";
+import { inView, stagger, useAnimate } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { usePrefersReducedMotion } from "@/lib/use-prefers-reduced-motion";
 import styles from "./typewriter.module.css";
@@ -12,13 +12,16 @@ type TypewriterProps = Omit<ComponentPropsWithoutRef<"span">, "children"> & {
   speed?: number;
   /** Milliseconds before the first letter appears. */
   delay?: number;
+  /** Start once the text (or its shared group) enters the viewport. */
+  startOnView?: boolean;
 };
 
-/** Reveals text once on mount, reserving its full width throughout. */
+/** Reserves the full text width, with an optional shared viewport trigger. */
 export function Typewriter({
   text,
   speed = 100,
   delay = 0,
+  startOnView = false,
   className,
   ...props
 }: TypewriterProps) {
@@ -37,26 +40,35 @@ export function Typewriter({
     elements.forEach((element) => {
       element.style.opacity = "0";
     });
-    const animation = animate(
-      elements,
-      { opacity: [0, 1], y: ["0.12em", "0em"] },
-      {
-        duration: 0.12,
-        ease: [0.23, 1, 0.32, 1],
-        delay: stagger(Math.max(0, speed) / 1000, {
-          startDelay: Math.max(0, delay) / 1000,
-        }),
-      },
-    );
+    let animation: { cancel: () => void } | undefined;
+    const start = () => {
+      animation = animate(
+        elements,
+        { opacity: [0, 1], y: ["0.12em", "0em"] },
+        {
+          duration: 0.12,
+          ease: [0.23, 1, 0.32, 1],
+          delay: stagger(Math.max(0, speed) / 1000, {
+            startDelay: Math.max(0, delay) / 1000,
+          }),
+        },
+      );
+    };
+    const target = scope.current.closest("[data-typewriter-group]") ?? scope.current;
+    const stopObserving = startOnView
+      ? inView(target, start, { margin: "0px 0px -10% 0px" })
+      : undefined;
+    if (!startOnView) start();
 
     return () => {
-      animation.cancel();
+      stopObserving?.();
+      animation?.cancel();
       elements.forEach((element) => {
         element.style.removeProperty("opacity");
         element.style.removeProperty("transform");
       });
     };
-  }, [animate, delay, reducedMotion, scope, speed, text]);
+  }, [animate, delay, reducedMotion, scope, speed, startOnView, text]);
 
   return (
     <span ref={scope} className={cn(styles.root, className)} {...props}>
