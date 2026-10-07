@@ -68,16 +68,6 @@ export function SiteMotion({ children }: { children: ReactNode }) {
     reveal(select(".hero-topline, .hero-title__intro"), 0.08, 16);
     reveal(select('[data-animate="hero-copy"]'), 0.35, 18);
 
-    const heroArt = select('[data-animate="hero-logo"]');
-    remember(heroArt);
-    controls.push(
-      animate(
-        heroArt,
-        { opacity: [0, 1], scale: [0.94, 1], rotate: [-4, 0] },
-        { duration: 1, delay: 0.15, ease },
-      ),
-    );
-
     // Reveal once when each section enters; never hide offscreen content or
     // animate an ancestor of a keyboard-focused control.
     const sections = select("main > section:not(.hero), .site-footer");
