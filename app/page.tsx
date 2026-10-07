@@ -9,10 +9,11 @@ import { BrandBreak } from "@/components/sections/brand-break";
 import { WhyUs } from "@/components/sections/why-us";
 import { Marketplace } from "@/components/sections/marketplace";
 import { FinalCTA } from "@/components/sections/final-cta";
+import { SiteMotion } from "@/components/layout/site-motion";
 
 export default function Home() {
   return (
-    <div id="top">
+    <SiteMotion>
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
@@ -29,6 +30,6 @@ export default function Home() {
         <FinalCTA />
       </main>
       <Footer />
-    </div>
+    </SiteMotion>
   );
 }

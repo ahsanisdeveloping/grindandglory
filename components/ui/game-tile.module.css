@@ -1,0 +1,96 @@
+.tile {
+  min-width: 0;
+  background: var(--color-ivory);
+}
+
+.link {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-6);
+  height: 100%;
+  min-height: 180px;
+  padding: var(--space-8) var(--space-4);
+  text-align: center;
+  transition: background-color var(--duration-fast);
+}
+
+.link:focus-visible {
+  outline-offset: -5px;
+  background: var(--color-ivory-hover);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(100%, 120px);
+  height: 56px;
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 240ms var(--ease-out);
+}
+
+.name {
+  max-width: 17ch;
+  min-height: 2.8em;
+  font-size: var(--text-small);
+  font-weight: 500;
+  line-height: 1.4;
+  text-wrap: balance;
+}
+
+/* Light publisher wordmarks need a dark treatment on the ivory cells. */
+.logo .darkLogo {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+.arrow {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  width: 15px;
+  height: 15px;
+  opacity: 0;
+  transform: translate(-3px, 3px);
+  transition: opacity 180ms, transform 180ms var(--ease-out);
+}
+
+.link:focus-visible .arrow {
+  opacity: 1;
+  transform: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link:hover {
+    background: var(--color-ivory-hover);
+  }
+  .link:hover .logo img {
+    transform: translateY(-3px);
+  }
+  .link:hover .arrow {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .link {
+    min-height: 155px;
+    padding: var(--space-6) var(--space-3);
+    gap: var(--space-4);
+  }
+  .logo {
+    width: min(100%, 100px);
+    height: 48px;
+  }
+  .name {
+    font-size: 0.75rem;
+  }
+}

@@ -4,6 +4,7 @@ import { BrandMark } from "@/components/ui/logo";
 import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { StoreLink } from "@/components/ui/store-link";
+import { Typewriter } from "@/components/ui/typewriter";
 import { site } from "@/data/site";
 
 export function Hero() {
@@ -20,14 +21,24 @@ export function Hero() {
           <h1 id="hero-title" className="hero-title">
             <span className="hero-title__group" data-animate="hero-title">
               <span className="hero-title__intro">We do the</span>
-              <span className="hero-title__display">GRIND.</span>
+              <Typewriter
+                className="hero-title__display"
+                text="GRIND."
+                delay={250}
+                speed={110}
+              />
             </span>
             <span
               className="hero-title__group hero-title__group--glory"
               data-animate="hero-title"
             >
               <span className="hero-title__intro">You get the</span>
-              <span className="hero-title__display">GLORY.</span>
+              <Typewriter
+                className="hero-title__display"
+                text="GLORY."
+                delay={1000}
+                speed={110}
+              />
             </span>
           </h1>
           <div className="hero-art" aria-hidden="true" data-animate="hero-logo">

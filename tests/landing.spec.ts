@@ -42,6 +42,10 @@ for (const width of [375, 430, 768, 1024, 1440, 1920]) {
       );
     expect(unsafeLinks).toEqual([]);
     expect(errors).toEqual([]);
+    // Audit and capture the settled page, after scroll-triggered fades finish.
+    await page.waitForFunction(() =>
+      document.getAnimations().every((animation) => animation.playState !== "running"),
+    );
     await page.screenshot({
       path: `artifacts/landing-${width}.png`,
       fullPage: true,
@@ -99,7 +103,8 @@ test("reduced motion and JavaScript-free content stay usable", async ({
   const page = await context.newPage();
   await page.goto(process.env.PLAYWRIGHT_BASE_URL ?? "http://localhost:3000");
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
-  await expect(page.locator(".game-panel")).toHaveCount(3);
+  await expect(page.getByRole("list", { name: "Popular multiplayer games" }).getByRole("listitem"))
+    .toHaveCount(12);
   await expect(page.locator(".hero .store-link")).toHaveAttribute(
     "href",
     "https://www.eldorado.gg/",

@@ -2,8 +2,9 @@ import { ArrowDownRight } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { Eyebrow } from "@/components/ui/eyebrow";
-import { GamePanel } from "@/components/ui/game-panel";
+import { GameTile } from "@/components/ui/game-tile";
 import { games } from "@/data/games";
+import styles from "./games.module.css";
 
 export function Games() {
   return (
@@ -27,11 +28,11 @@ export function Games() {
           </h2>
           <ArrowDownRight strokeWidth={1} aria-hidden="true" />
         </div>
-        <div className="games-grid" data-animate="games-track">
-          {games.map((game, index) => (
-            <GamePanel key={game.id} game={game} index={index} />
+        <ul className={styles.grid} aria-label="Popular multiplayer games">
+          {games.map((game) => (
+            <GameTile key={game.id} game={game} />
           ))}
-        </div>
+        </ul>
         <p className="games-footnote">
           A look at our gaming world. Current availability and account details
           are listed on the marketplace.

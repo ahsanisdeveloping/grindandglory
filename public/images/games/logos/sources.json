@@ -1,0 +1,17 @@
+{
+  "note": "Game logos for editorial identification, not live inventory or publisher affiliation.",
+  "sources": {
+    "apex": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Apex_Legends_logo.svg",
+    "valorant": "https://upload.wikimedia.org/wikipedia/commons/1/11/Valorant_logo_-_black_color_version.svg",
+    "call-of-duty": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Call_of_Duty_logo_2023.svg",
+    "fortnite": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Fortnite_BR_2022_Logo_with_black_text.svg",
+    "marvel-rivals": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Logo_Marvel_Rivals.svg",
+    "pubg": "https://cdn.akamai.steamstatic.com/steam/apps/578080/logo.png",
+    "counter-strike": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Counter-Strike_2_logo.svg",
+    "overwatch": "https://cdn.akamai.steamstatic.com/steam/apps/2357570/logo.png",
+    "rocket-league": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Rocket_League_logo.svg",
+    "dota": "https://cdn.akamai.steamstatic.com/steam/apps/570/logo.png",
+    "clash-of-clans": "https://supercell.com/images/6ccee464815ad96b946fae87998c8190/main_logo_clashofclans.eccf135a.webp",
+    "league": "https://www.riotgames.com/darkroom/800/9c08e3b3ce6281f252a4dfbf61357a11:75ab7e60b85225c6c7f19ae4024e27a6/lol-logo-rendered-hi-res.png"
+  }
+}

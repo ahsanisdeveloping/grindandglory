@@ -528,106 +528,6 @@ main {
   width: 80px;
   height: 80px;
 }
-.games-grid {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
-  align-items: start;
-  gap: var(--space-6);
-  margin-top: var(--space-16);
-}
-.game-panel {
-  min-width: 0;
-}
-.game-panel > a {
-  display: block;
-}
-.game-panel__image {
-  position: relative;
-  aspect-ratio: 0.9;
-  overflow: hidden;
-  background: var(--color-glory);
-}
-.game-panel__image img {
-  object-fit: cover;
-  filter: grayscale(1);
-  opacity: 0.85;
-  transition: transform var(--duration-slow) var(--ease-out);
-}
-.game-panel__wash {
-  position: absolute;
-  inset: 0;
-  background: var(--color-glory);
-  mix-blend-mode: color;
-}
-.game-panel__image::after {
-  position: absolute;
-  inset: 0;
-  content: "";
-  background: rgb(17 16 17 / 15%);
-}
-.game-panel__art-title {
-  position: absolute;
-  z-index: 1;
-  bottom: var(--space-6);
-  left: var(--space-6);
-  right: var(--space-6);
-  font-weight: 900;
-  color: var(--color-ivory);
-  font-size: clamp(1.5rem, 3vw, 3rem);
-  line-height: 0.95;
-  letter-spacing: -0.05em;
-  text-shadow: 0 1px 12px rgb(17 16 17 / 40%);
-}
-.game-panel--fortnite {
-  margin-top: var(--space-16);
-}
-.game-panel--league {
-  margin-top: var(--space-8);
-}
-.game-panel--fortnite .game-panel__image,
-.game-panel--league .game-panel__image {
-  aspect-ratio: 0.7;
-}
-.game-panel--fortnite .game-panel__image img {
-  object-position: 55% center;
-}
-.game-panel__details {
-  padding-top: var(--space-6);
-}
-.game-panel__title {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  justify-content: space-between;
-}
-.game-panel__title h3 {
-  font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 0.025em;
-}
-.game-panel__title svg {
-  width: 20px;
-  height: 20px;
-  transition: transform var(--duration-normal) var(--ease-out);
-}
-.game-panel__details p {
-  margin-top: var(--space-3);
-  color: var(--color-muted);
-  font-size: 0.875rem;
-  line-height: 1.6;
-  max-width: 36ch;
-}
-.game-panel__details ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2) var(--space-3);
-  margin-top: var(--space-6);
-}
-.game-panel__details li {
-  font-size: 0.6875rem;
-  padding-bottom: var(--space-1);
-  border-bottom: var(--border-light);
-}
 .games-footnote {
   font-size: var(--text-small);
   color: var(--color-muted);
@@ -1008,12 +908,6 @@ main {
   .hero-actions .button:first-child:hover svg {
     transform: translateY(3px);
   }
-  .game-panel > a:hover .game-panel__image img {
-    transform: scale(1.045);
-  }
-  .game-panel > a:hover .game-panel__title svg {
-    transform: translate(3px, -3px);
-  }
   .back-to-top:hover {
     background: var(--color-surface);
   }
@@ -1042,13 +936,6 @@ main {
   .why-layout,
   .marketplace-layout {
     gap: var(--space-12);
-  }
-  .games-grid {
-    gap: var(--space-4);
-  }
-  .game-panel__art-title {
-    left: var(--space-4);
-    right: var(--space-4);
   }
 }
 
@@ -1112,18 +999,6 @@ main {
   }
   .grind-item p {
     max-width: 35ch;
-  }
-  .games-grid {
-    grid-template-columns: 1.2fr 1fr 1fr;
-  }
-  .game-panel__details ul {
-    gap: var(--space-2);
-  }
-  .game-panel__title h3 {
-    font-size: 0.75rem;
-  }
-  .game-panel__art-title {
-    font-size: 1.5rem;
   }
   .process-layout {
     grid-template-columns: 4fr 6fr;
@@ -1308,35 +1183,6 @@ main {
     width: 40px;
     height: 40px;
     margin-left: var(--space-3);
-  }
-  .games-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-12);
-    margin-top: var(--space-12);
-  }
-  .game-panel--fortnite,
-  .game-panel--league {
-    margin-top: 0;
-  }
-  .game-panel__image,
-  .game-panel--fortnite .game-panel__image,
-  .game-panel--league .game-panel__image {
-    aspect-ratio: 1.07;
-  }
-  .game-panel__title h3 {
-    font-size: 0.875rem;
-  }
-  .game-panel__art-title {
-    font-size: 2.25rem;
-    left: var(--space-6);
-    max-width: 10ch;
-  }
-  .game-panel__details {
-    padding-top: var(--space-4);
-  }
-  .game-panel__details ul {
-    margin-top: var(--space-4);
-    gap: var(--space-4);
   }
   .games-footnote {
     font-size: 0.75rem;

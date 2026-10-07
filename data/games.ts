@@ -1,44 +1,22 @@
 export type Game = {
   id: string;
   name: string;
-  description: string;
-  features: readonly string[];
-  image: string;
-  imageAlt: string;
-  imagePosition: string;
-  artworkIsPlaceholder: boolean;
+  logo: string;
+  logoTone?: "dark";
 };
 
-// Editorial category examples, not live inventory. Replace with commissioned artwork.
+// Editorial game examples, not live marketplace inventory.
 export const games: readonly Game[] = [
-  {
-    id: "valorant",
-    name: "VALORANT",
-    description: "For the rank chasers and the collection builders.",
-    features: ["Ranks", "Weapon skins", "Progression"],
-    image: "/images/games/valorant.webp",
-    imageAlt: "Jett from VALORANT in the game’s illustrated character artwork",
-    imagePosition: "53% center",
-    artworkIsPlaceholder: true,
-  },
-  {
-    id: "fortnite",
-    name: "FORTNITE",
-    description: "Season after season. A locker that tells a story.",
-    features: ["Outfits", "Collectibles", "Progression"],
-    image: "/images/games/fortnite.webp",
-    imageAlt: "Fortnite characters in official promotional artwork",
-    imagePosition: "50% center",
-    artworkIsPlaceholder: true,
-  },
-  {
-    id: "league",
-    name: "LEAGUE OF LEGENDS",
-    description: "Champions, mastery, and the climb that never stops.",
-    features: ["Champions", "Skins", "Mastery"],
-    image: "/images/games/league.webp",
-    imageAlt: "Akali from League of Legends in Riot Games’ champion artwork",
-    imagePosition: "65% center",
-    artworkIsPlaceholder: true,
-  },
+  { id: "apex", name: "Apex Legends", logo: "/images/games/logos/apex.webp" },
+  { id: "valorant", name: "VALORANT", logo: "/images/games/logos/valorant.webp" },
+  { id: "call-of-duty", name: "Call of Duty", logo: "/images/games/logos/call-of-duty.webp" },
+  { id: "fortnite", name: "Fortnite", logo: "/images/games/logos/fortnite.webp" },
+  { id: "marvel-rivals", name: "Marvel Rivals", logo: "/images/games/logos/marvel-rivals.webp" },
+  { id: "pubg", name: "PUBG: Battlegrounds", logo: "/images/games/logos/pubg.webp", logoTone: "dark" },
+  { id: "clash-of-clans", name: "Clash of Clans", logo: "/images/games/logos/clash-of-clans.webp" },
+  { id: "league", name: "League of Legends", logo: "/images/games/logos/league.webp" },
+  { id: "counter-strike", name: "Counter-Strike 2", logo: "/images/games/logos/counter-strike.webp" },
+  { id: "overwatch", name: "Overwatch 2", logo: "/images/games/logos/overwatch.webp", logoTone: "dark" },
+  { id: "rocket-league", name: "Rocket League", logo: "/images/games/logos/rocket-league.webp" },
+  { id: "dota", name: "Dota 2", logo: "/images/games/logos/dota.webp", logoTone: "dark" },
 ];

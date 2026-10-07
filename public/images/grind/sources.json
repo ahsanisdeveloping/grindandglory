@@ -1,0 +1,22 @@
+{
+  "generator": "Built-in image_gen tool",
+  "assets": [
+    {
+      "file": "public/images/grind/time.webp",
+      "prompt": "Create a premium editorial 3D still-life image for the gaming brand Grind&Glory's website. Subject: a sculptural hourglass made of deep aubergine ceramic, fine ivory sand halfway through, elegant tactile object. Landscape 3:2 composition. The subject fills about 65% of frame and sits centrally on a pale grey ivory seamless studio ground (#f5f5f2). Brand palette strictly deep plum aubergine (#351431) and cool ivory. Soft directional studio lighting from upper left, subtle realistic contact shadows, fine matte tactile material, polished physically rendered detail. Understated and striking like a premium design magazine product photograph, clean negative space, quiet backdrop. No words, letters, numbers, labels, logos, game characters, colorful fantasy backgrounds, neon, gradients, UI, or borders. The entire result is the artwork, not a website mockup."
+    },
+    {
+      "file": "public/images/grind/skill.webp",
+      "prompt": "Create a premium editorial 3D still-life image for the gaming brand Grind&Glory's website. Subject: a sculptural competitive rank insignia, three interlocking angular chevrons in deep aubergine ceramic, a small ivory diamond nested in the middle, physical trophy object standing upright. Landscape 3:2 composition. The subject fills about 65% of frame and sits centrally on a pale grey ivory seamless studio ground (#f5f5f2). Brand palette strictly deep plum aubergine (#351431) and cool ivory. Soft directional studio lighting from upper left, subtle realistic contact shadows, fine matte tactile material, polished physically rendered detail. Understated and striking like a premium design magazine product photograph, clean negative space, quiet backdrop. No words, letters, numbers, labels, logos, game characters, colorful fantasy backgrounds, neon, gradients, UI, or borders. The entire result is the artwork, not a website mockup."
+    },
+    {
+      "file": "public/images/grind/rarity.webp",
+      "prompt": "Create a premium editorial 3D still-life image for the gaming brand Grind&Glory's website. Subject: one collectible faceted diamond crystal of deep aubergine glass with softly translucent edges on a low ivory ceramic plinth, sophisticated physical object. Landscape 3:2 composition. The subject fills about 65% of frame and sits centrally on a pale grey ivory seamless studio ground (#f5f5f2). Brand palette strictly deep plum aubergine (#351431) and cool ivory. Soft directional studio lighting from upper left, subtle realistic contact shadows, fine matte tactile material, polished physically rendered detail. Understated and striking like a premium design magazine product photograph, clean negative space, quiet backdrop. No words, letters, numbers, labels, logos, game characters, colorful fantasy backgrounds, neon, gradients, UI, or borders. The entire result is the artwork, not a website mockup."
+    },
+    {
+      "file": "public/images/grind/progress.webp",
+      "prompt": "Create a premium editorial 3D still-life image for the gaming brand Grind&Glory's website. Subject: a sculptural ascending staircase of five substantial deep aubergine ceramic blocks, small ivory sphere resting on the top step, physical arrangement. Landscape 3:2 composition. The subject fills about 65% of frame and sits centrally on a pale grey ivory seamless studio ground (#f5f5f2). Brand palette strictly deep plum aubergine (#351431) and cool ivory. Soft directional studio lighting from upper left, subtle realistic contact shadows, fine matte tactile material, polished physically rendered detail. Understated and striking like a premium design magazine product photograph, clean negative space, quiet backdrop. No words, letters, numbers, labels, logos, game characters, colorful fantasy backgrounds, neon, gradients, UI, or borders. The entire result is the artwork, not a website mockup."
+    }
+  ],
+  "optimization": "1200px wide WebP, quality 87"
+}
