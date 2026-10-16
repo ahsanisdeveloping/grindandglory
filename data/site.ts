@@ -5,9 +5,10 @@ export const site = {
   storeUrl: "https://www.eldorado.gg/users/grindandglory/shop/Account",
   storeUrlIsPlaceholder: false,
   navigation: [
-    { label: "About", href: "#about" },
-    { label: "Games", href: "#games" },
-    { label: "Process", href: "#process" },
+    { label: "Accounts", href: "/accounts" },
+    { label: "About", href: "/#about" },
+    { label: "Games", href: "/#games" },
+    { label: "Process", href: "/#process" },
     // { label: "Why us", href: "#why-us" },
   ],
   socials: [

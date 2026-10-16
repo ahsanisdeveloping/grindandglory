@@ -22,8 +22,10 @@ export function MobileMenu() {
 
   function navigate(href: string) {
     setOpen(false);
+    const target = new URL(href, window.location.href);
+    if (target.pathname !== window.location.pathname || !target.hash) return;
     requestAnimationFrame(() => {
-      const section = document.querySelector<HTMLElement>(href);
+      const section = document.getElementById(target.hash.slice(1));
       section?.focus({ preventScroll: true });
       section?.scrollIntoView();
     });
@@ -56,7 +58,7 @@ export function MobileMenu() {
         }}
       >
         <div className="menu-drawer__top">
-          <Logo onClick={() => navigate("#top")} />
+          <Logo onClick={() => navigate("/#top")} />
           <IconButton
             aria-label="Close navigation menu"
             onClick={() => setOpen(false)}

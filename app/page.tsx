@@ -10,6 +10,8 @@ import { WhyUs } from "@/components/sections/why-us";
 import { Marketplace } from "@/components/sections/marketplace";
 import { FinalCTA } from "@/components/sections/final-cta";
 import { SiteMotion } from "@/components/layout/site-motion";
+import { Suspense } from "react";
+import { Accounts } from "@/components/sections/accounts";
 
 export default function Home() {
   return (
@@ -23,6 +25,9 @@ export default function Home() {
         <Manifesto />
         <Grind />
         <Games />
+        <Suspense fallback={<section className="section" aria-label="Loading account collection"><div className="container"><p role="status">Loading the collection...</p></div></section>}>
+          <Accounts />
+        </Suspense>
         <Process />
         <BrandBreak />
         {/* <WhyUs /> */}

@@ -35,7 +35,7 @@ export function Logo({
 }) {
   return (
     <a
-      href="#top"
+      href="/#top"
       className={cn("logo", className)}
       aria-label="Grind and Glory, back to top"
       onClick={onClick}
