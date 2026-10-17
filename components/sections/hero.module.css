@@ -53,7 +53,6 @@
 .platforms li { display: flex; align-items: center; justify-content: center; width: 35px; height: 36px; }
 .platforms img { width: 32px; height: 32px; object-fit: contain; opacity: 0.9; }
 .mascot { position: absolute; z-index: 1; left: 50%; bottom: 11.2%; width: min(44vw, 760px); height: 65%; transform: translateX(-50%); }
-.mobileMenu { display: none; }
 .decorations { position: absolute; inset: 0; pointer-events: none; z-index: 0; color: #d9bfde; }
 .decorations > * { position: absolute; }
 .starOne { left: 29.4%; top: 54.8%; width: 29px; height: 29px; }
@@ -102,8 +101,6 @@
 @media (max-width: 767px) {
   .hero:global(.hero) { min-height: 100svh; height: auto; display: grid; grid-template-columns: minmax(0, 1fr); padding: 35px 24px 38px; }
   .brand { position: relative; top: auto; left: auto; transform: none; width: clamp(190px, 60vw, 250px); max-width: calc(100% - 80px); justify-self: center; }
-  .mobileMenu { display: block; position: absolute; top: 22px; right: 14px; z-index: 3; }
-  .mobileMenu :global(.mobile-menu) { display: block; }
   .left { display: contents; }
   .left > .pill { justify-self: center; margin-top: 32px; }
   .left h1 { margin-top: 15px; text-align: center; font-size: clamp(34px, 9.4vw, 46px); line-height: 1.02; }

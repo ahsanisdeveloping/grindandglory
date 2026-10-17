@@ -69,6 +69,7 @@ test("mobile menu supports keyboard, dismissal, and section navigation", async (
 }) => {
   await page.setViewportSize({ width: 375, height: 812 });
   await page.goto("/");
+  await page.locator("#process").scrollIntoViewIfNeeded();
   const trigger = page.getByRole("button", { name: "Open navigation menu" });
   await trigger.focus();
   await page.keyboard.press("Enter");

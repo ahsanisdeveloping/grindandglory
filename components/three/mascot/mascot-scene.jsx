@@ -30,12 +30,12 @@ function StudioLighting() {
   );
 }
 
-export default function MascotScene({ pointer, reducedMotion, paused, compact, sceneElement, onReady, onContextLost }) {
+export default function MascotScene({ pointer, reducedMotion, paused, sceneElement, onReady, onContextLost }) {
   return (
     <Canvas
       orthographic
       camera={{ position: [0,2.12,12], near: 0.1, far: 50, zoom: 100 }}
-      dpr={[1, compact ? mascotConfig.rendering.mobileDpr : mascotConfig.rendering.maxDpr]}
+      dpr={[1, mascotConfig.rendering.maxDpr]}
       frameloop={paused ? "never" : reducedMotion ? "demand" : "always"}
       gl={{ alpha: true, antialias: true, powerPreference: "low-power", toneMappingExposure: 1 }}
       resize={{ scroll: false, debounce: 100 }}
