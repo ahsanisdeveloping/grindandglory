@@ -7,6 +7,7 @@ import { StoreLink } from "@/components/ui/store-link";
 import { HeroHeadline } from "./hero-headline";
 import { site } from "@/data/site";
 import styles from "./hero.module.css";
+import { ScrollController } from "@/components/three/scroll-controller";
 
 export function Hero() {
   return (
@@ -35,6 +36,12 @@ export function Hero() {
         <div className={`hero-stage ${styles.stage}`}>
           <HeroHeadline />
         </div>
+        <div className={styles.objectStage} data-controller-anchor>
+          <div className={styles.orbit} aria-hidden="true" />
+          <ScrollController />
+          <span className={styles.objectLabel}>Less grind. More play.</span>
+          <span className={styles.objectIndex}>G&G / PLAYER ONE</span>
+        </div>
         <div className={`hero-bottom ${styles.bottom}`} data-animate="hero-copy">
           <p>{site.hero.copy}</p>
           <div className={`hero-actions ${styles.actions}`}>
@@ -47,6 +54,7 @@ export function Hero() {
             <StoreLink variant="ghost" />
           </div>
         </div>
+        <div className={styles.scrollNote}><ArrowDown size={14} aria-hidden="true" /> Scroll to make your move</div>
       </Container>
     </section>
   );

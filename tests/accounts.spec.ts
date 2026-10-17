@@ -70,7 +70,7 @@ test("mobile accounts and landing preview remain accessible and on brand", async
   await preview.scrollIntoViewIfNeeded();
   await expect(preview.getByRole("heading", { level: 2 })).toBeVisible();
   await expect(preview.getByRole("heading", { level: 3 }).first()).toBeVisible();
-  await expect(preview.locator(".account-card")).toHaveCount(3);
+  await expect(preview.locator(".account-card")).toHaveCount(4);
   for (const image of await preview.locator("img").all()) {
     await image.scrollIntoViewIfNeeded();
     await expect(image).toHaveJSProperty("complete", true);

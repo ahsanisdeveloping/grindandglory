@@ -6,12 +6,11 @@ import { Grind } from "@/components/sections/grind";
 import { Games } from "@/components/sections/games";
 import { Process } from "@/components/sections/process";
 import { BrandBreak } from "@/components/sections/brand-break";
-import { WhyUs } from "@/components/sections/why-us";
 import { Marketplace } from "@/components/sections/marketplace";
 import { FinalCTA } from "@/components/sections/final-cta";
 import { SiteMotion } from "@/components/layout/site-motion";
 import { Suspense } from "react";
-import { Accounts } from "@/components/sections/accounts";
+import { Accounts, AccountsLoading } from "@/components/sections/accounts";
 
 export default function Home() {
   return (
@@ -22,12 +21,13 @@ export default function Home() {
       <Header />
       <main id="main-content" tabIndex={-1}>
         <Hero />
+        
         <Manifesto />
-        <Grind />
-        <Games />
-        <Suspense fallback={<section className="section" aria-label="Loading account collection"><div className="container"><p role="status">Loading the collection...</p></div></section>}>
+        <Suspense fallback={<AccountsLoading />}>
           <Accounts />
         </Suspense>
+        <Grind />
+        <Games />
         <Process />
         <BrandBreak />
         {/* <WhyUs /> */}

@@ -1,6 +1,6 @@
 # Accounts storefront
 
-`/accounts` displays the public inventory for the verified Grind&Glory seller. The landing page previews three live listings after the games section using the original compact card layout: level columns, 1.6:1 images, plain dividers and standard prices. Cards stack on mobile.
+`/accounts` displays the public inventory for the verified Grind&Glory seller. The landing page previews up to four live listings immediately after the hero. Enclosed ivory product cards sit on a muted plum-gray surface, with prominent imagery, account details, prices and delivery information. The preview uses four columns on wide screens, two on tablets and one on small phones. The full `/accounts` catalogue retains its existing layout and filters.
 
 `lib/eldorado.ts` is server-only. It fetches `GET https://www.eldorado.gg/api/flexibleOffers` for the fixed verified seller ID and `category=Account`. It accepts only an internally generated page number. It does not read, send or exchange credentials, forward browser input, or expose an API route. Fetches cache for 60 seconds. A maximum of 20 upstream pages, 50 results each, are fetched in batches of four. The integration fails visibly if the limit is exceeded, rather than silently omitting inventory.
 

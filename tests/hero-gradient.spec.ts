@@ -12,7 +12,7 @@ test("gradient hero keeps its content usable when WebGL is unavailable", async (
   await page.goto("/");
   const hero = page.locator(".hero");
   await expect(hero.locator("img")).toHaveCount(0);
-  const canvas = hero.locator("canvas");
+  const canvas = hero.locator("canvas").first();
   await expect(canvas).toHaveCSS("opacity", "0");
   const fallback = await canvas.evaluate((element) => getComputedStyle(element.parentElement!).backgroundImage);
   expect(fallback).toContain("linear-gradient");

@@ -32,19 +32,21 @@
 }
 
 .hero .content:global(.container) {
-  display: block;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  column-gap: 2rem;
   position: relative;
-  text-align: center;
+  text-align: left;
 }
 
 .hero .topline {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .hero .stage {
   display: block;
-  margin: 2rem 0 2rem;
+  margin: 2.5rem 0 2rem;
 }
 
 .hero .title {
@@ -57,10 +59,9 @@
 
 .hero .group {
   display: flex;
-  flex-direction: row;
-  align-items: baseline;
-  justify-content: center;
-  gap: clamp(0.625rem, 1.5vw, 1.5rem);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
   margin: 0;
 }
 
@@ -70,7 +71,7 @@
 
 .hero .intro {
   margin: 0;
-  font-size: clamp(2.5rem, 5.8vw, 6rem);
+  font-size: clamp(1.75rem, 3.2vw, 3.25rem);
   line-height: 1.2;
   letter-spacing: -0.035em;
   text-transform: none;
@@ -79,7 +80,9 @@
 
 .hero .display {
   display: inline-grid;
-  font-size: clamp(3rem, 6.5vw, 6.5rem);
+  font-size: clamp(3rem, 6.8vw, 7rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
   line-height: 1.12;
 }
 
@@ -97,7 +100,7 @@
 .hero .bottom {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 1.75rem;
   padding: 0;
 }
@@ -112,7 +115,7 @@
 .hero .actions {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 1.5rem;
   margin: 0;
@@ -120,6 +123,53 @@
 
 .hero .actions :global(.button--ghost) {
   color: var(--color-glory);
+}
+
+.objectStage {
+  position: relative;
+  grid-column: 2;
+  grid-row: 1 / 4;
+  min-height: 480px;
+  align-self: stretch;
+}
+
+.orbit {
+  position: absolute;
+  width: 100%;
+  aspect-ratio: 1;
+  border: 1px solid rgb(53 20 49 / 12%);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.orbit::after {
+  content: "";
+  position: absolute;
+  inset: 12%;
+  border: 1px solid rgb(53 20 49 / 8%);
+  border-radius: 50%;
+}
+
+.objectLabel, .objectIndex {
+  position: absolute;
+  font-size: 0.6875rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.objectLabel { bottom: 1.5rem; right: 0; }
+.objectIndex { top: 0.5rem; right: 0; color: var(--color-glory-muted); }
+.scrollNote {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 3.5rem;
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-glory-muted);
 }
 
 @media (max-width: 1023px) {
@@ -130,6 +180,15 @@
 }
 
 @media (max-width: 767px) {
+  .hero .content:global(.container) { grid-template-columns: minmax(0, 1fr); }
+  .hero .topline { justify-content: center; }
+  .hero .stage { text-align: center; }
+  .objectStage { grid-column: 1; grid-row: 3; min-height: 320px; margin-bottom: 1.5rem; }
+  .orbit { width: 260px; left: 50%; transform: translate(-50%, -50%); }
+  .objectIndex { top: 0; font-size: 0.625rem; }
+  .objectLabel { bottom: 0; font-size: 0.625rem; }
+  .hero .bottom { align-items: center; text-align: center; }
+  .scrollNote { justify-content: center; margin-top: 2rem; }
   .hero:global(.hero) {
     margin-top: -77px;
     padding: calc(77px + 2.5rem) 0 3rem;
@@ -150,6 +209,7 @@
     flex-direction: row;
     align-items: baseline;
     gap: 0.625rem;
+    justify-content: center;
   }
 
   .hero .intro {

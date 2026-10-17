@@ -2,12 +2,12 @@ import { ArrowUpRight, Clock3 } from "lucide-react";
 import { OfferImage } from "@/components/accounts/offer-image";
 import type { AccountOffer } from "@/lib/account-filters";
 
-export function AccountCard({ offer, headingLevel = 2 }: { offer: AccountOffer; headingLevel?: 2 | 3 }) {
+export function AccountCard({ offer, headingLevel = 2, previewArtwork }: { offer: AccountOffer; headingLevel?: 2 | 3; previewArtwork?: { src: string; label: string } }) {
   const Heading = headingLevel === 3 ? "h3" : "h2";
   return (
     <article className="account-card">
       <a href={offer.url} target="_blank" rel="noopener noreferrer" className="account-card-link">
-        <div className="account-card-image"><OfferImage src={offer.image} title={offer.title} /></div>
+        <div className="account-card-image"><OfferImage src={offer.image} title={offer.title} previewArtwork={previewArtwork} /></div>
         <div className="account-card-body">
           <p className="account-game">{offer.game}</p>
           <Heading>{offer.title}</Heading>
