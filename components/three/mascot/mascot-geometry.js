@@ -146,6 +146,24 @@ export function createDpadGeometry() {
   return new ExtrudeGeometry(shape, { depth: 0.05, bevelSize: 0.018, bevelThickness: 0.018, bevelEnabled: true, bevelSegments: 4 });
 }
 
+export function createCrownGemGeometry() {
+  const geometry = new BufferGeometry();
+  geometry.setAttribute("position", new Float32BufferAttribute([
+    0, 0.235, 0,
+    0.13, 0, 0,
+    0, -0.235, 0,
+    -0.13, 0, 0,
+    0, 0, 0.075,
+    0, 0, -0.045,
+  ], 3));
+  geometry.setIndex([0,3,4, 3,2,4, 2,1,4, 1,0,4, 0,1,5, 1,2,5, 2,3,5, 3,0,5]);
+  const faceted = geometry.toNonIndexed();
+  geometry.dispose();
+  faceted.computeVertexNormals();
+  for (let face = 0; face < 8; face++) faceted.addGroup(face * 3, 3, face % 2);
+  return faceted;
+}
+
 export function createSmileGeometry() {
   const points = [];
   for (let i = 0; i <= 24; i++) {

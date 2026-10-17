@@ -59,6 +59,7 @@ export function MascotViewport() {
   return (
     <div ref={element} className={styles.viewport} data-mascot-scene data-ready={ready && !failed} data-paused={paused || reducedMotion}>
       <div className={styles.ambientShadow} aria-hidden="true" />
+      <div className={styles.contactShadow} aria-hidden="true" />
       {!failed && (
         <SceneBoundary onError={() => setFailed(true)}>
           <MascotScene pointer={pointer} reducedMotion={reducedMotion} paused={paused} compact={compact} sceneElement={element} onReady={() => setReady(true)} onContextLost={() => setFailed(true)} />

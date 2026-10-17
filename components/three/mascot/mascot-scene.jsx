@@ -18,6 +18,7 @@ function StudioLighting() {
       <directionalLight position={[-3,6,6]} intensity={2.8} color="#fff5e8" />
       <directionalLight position={[4,3,2]} intensity={1.5} color="#ffffff" />
       <directionalLight position={[-4,2,-2]} intensity={1.7} color="#dec0ec" />
+      <pointLight position={[-2.4,0.55,0.8]} color="#c78ee0" intensity={0.55} distance={4.8} decay={2} />
       <Environment resolution={mascotConfig.rendering.environmentResolution} frames={1}>
         <Lightformer form="rect" intensity={1.6} color="#ffffff" position={[0,4,7]} scale={[9,3,1]} />
         <Lightformer form="rect" intensity={3} color="#fff7ed" position={[-3,4,4]} scale={[4,5,1]} rotation={[0,Math.PI / 4,0]} />
@@ -48,7 +49,7 @@ export default function MascotScene({ pointer, reducedMotion, paused, compact, s
       <FittedCamera />
       <StudioLighting />
       <MascotCharacter pointer={pointer} reducedMotion={reducedMotion} paused={paused} sceneElement={sceneElement} />
-      <ContactShadows position={[0,0.015,0]} opacity={0.32} scale={8} blur={2.7} far={4.4} resolution={256} frames={1} color="#684074" />
+      <ContactShadows position={[0,0.015,0]} opacity={0.4} scale={8} blur={2.7} far={4.4} resolution={256} frames={1} color="#684074" />
     </Canvas>
   );
 }

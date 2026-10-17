@@ -23,6 +23,7 @@ On PowerShell with script execution disabled, use `npm.cmd` and `npx.cmd`. The d
 - `mascot-character.jsx`: damped pointer tracking, breathing, idle motion, blinks, and crown settling through refs without per-frame React updates.
 - `mascot-body.jsx`, `mascot-mask.jsx`, `mascot-eyes.jsx`, `mascot-crown.jsx`, and `mascot-geometry.js`: reusable procedural meshes. The mask follows the body's curved surface; the crown is traced from the supplied brand mark, including the diamond cutout.
 - `mascot-config.js`: palette, body proportions, motion settings, and render quality.
+- `soft-glow.jsx` and `mascot-config.js`'s `illumination` settings: local lavender halos, emissive eye crescents, the faceted crown gem, and light spill. These use depth-tested meshes and small point lights with no full-screen bloom pass. Responsive floor lighting pairs a broad lavender pool with a tighter contact shadow.
 - `scripts/prepare-hero-brand.mjs`: regenerates the transparent hero mark and wordmark from original local artwork. No mascot image is used.
 
 Reduced motion renders a still 3D character. Rendering stops when the mascot leaves the viewport, the tab is hidden, or the visitor pauses it. GPU failure provides text and a collection link. With JavaScript disabled, the logo, copy, section navigation, and a descriptive message remain available.

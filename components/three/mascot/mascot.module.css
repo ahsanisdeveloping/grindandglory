@@ -1,14 +1,42 @@
 .viewport { position: relative; width: 100%; height: 100%; }
 .viewport > div:has(> canvas) { opacity: 0; transition: opacity 600ms ease; }
 .viewport[data-ready="true"] > div:has(> canvas) { opacity: 1; }
-.ambientShadow { position: absolute; width: 98%; height: 12%; left: 1%; bottom: 4.7%; background: radial-gradient(ellipse, rgb(158 90 174 / 23%), rgb(158 90 174 / 8%) 45%, transparent 72%); filter: blur(13px); pointer-events: none; }
+.ambientShadow {
+  position: absolute;
+  width: 140%;
+  height: 20%;
+  left: -20%;
+  top: calc(50% + min(17.77vw, 307px, 44.6%));
+  transform: translateY(-50%);
+  background:
+    radial-gradient(ellipse at 38% 48%, rgb(175 104 197 / 34%), rgb(184 127 201 / 14%) 38%, transparent 69%),
+    radial-gradient(ellipse at 66% 50%, rgb(199 154 213 / 20%), transparent 60%);
+  filter: blur(18px);
+  pointer-events: none;
+}
+.contactShadow {
+  position: absolute;
+  width: 64%;
+  height: 4%;
+  left: 18%;
+  top: calc(50% + min(17.77vw, 307px, 44.6%));
+  transform: translateY(-50%);
+  background: radial-gradient(ellipse, rgb(65 25 68 / 29%), rgb(65 25 68 / 12%) 38%, transparent 74%);
+  filter: blur(6px);
+  pointer-events: none;
+}
 .loading { position: absolute; inset: 0; display: flex; flex-direction: column; gap: 12px; justify-content: center; align-items: center; color: #725b6d; font-size: 13px; text-align: center; }
 .loading a { text-decoration: underline; text-underline-offset: 5px; }
 .pause { position: absolute; right: 12%; bottom: 1%; width: 44px; height: 44px; display: grid; place-items: center; color: #715c73; background: transparent; border: 0; border-radius: 50%; opacity: 0; transition: opacity 200ms ease, background-color 200ms ease; }
 .viewport:hover .pause, .viewport:focus-within .pause { opacity: 1; }
 .pause:hover { background: #f0e6f2; }
 @media (min-width: 768px) and (max-width: 1199px) {
-  .ambientShadow { bottom: calc(44% - min(22.6vw, 44.6%)); }
+  .ambientShadow, .contactShadow { top: calc(50% + min(22.6vw, 44.6%)); }
+}
+@media (max-width: 767px) {
+  .ambientShadow, .contactShadow { top: calc(50% + min(40.4vw - 6.5px, 44.6%)); }
+  .ambientShadow { filter: blur(14px); }
+  .contactShadow { filter: blur(4px); }
 }
 @media (hover: none) { .pause { opacity: 0.7; } }
 @media (prefers-reduced-motion: reduce) { .viewport > div:has(> canvas) { transition: none; } }
