@@ -5,9 +5,9 @@ import { Logo } from "@/components/ui/logo";
 import { StoreLink } from "@/components/ui/store-link";
 import { site } from "@/data/site";
 
-export function Header() {
+export function Header({ revealAfterHero = false }: { revealAfterHero?: boolean }) {
   return (
-    <StickyHeader>
+    <StickyHeader revealAfterHero={revealAfterHero}>
       <Container className="header-inner">
         <Logo />
         <nav className="desktop-nav" aria-label="Main navigation">

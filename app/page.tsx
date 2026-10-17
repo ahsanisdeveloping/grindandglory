@@ -18,7 +18,7 @@ export default function Home() {
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
-      <Header />
+      <Header revealAfterHero />
       <main id="main-content" tabIndex={-1}>
         <Hero />
         

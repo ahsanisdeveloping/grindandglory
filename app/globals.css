@@ -297,6 +297,17 @@ main {
   box-shadow: 0 6px 24px rgb(53 20 49 / 6%);
   backdrop-filter: blur(12px);
 }
+.site-header[data-hero-header="true"] {
+  position: fixed;
+  inset: 0 0 auto;
+  visibility: hidden;
+  transform: translateY(-100%);
+  transition: transform 300ms var(--ease-out), visibility 300ms;
+}
+.site-header[data-hero-header="true"][data-scrolled="true"] {
+  visibility: visible;
+  transform: none;
+}
 .header-inner {
   display: flex;
   align-items: center;

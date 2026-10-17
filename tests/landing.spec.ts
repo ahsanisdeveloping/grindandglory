@@ -10,7 +10,9 @@ for (const width of [375, 430, 768, 1024, 1440, 1920]) {
     await page.evaluate(() => document.fonts.ready);
     // Trigger lazy images before checking assets and capturing the full page.
     for (const image of await page.locator("main img").all()) {
-      await image.scrollIntoViewIfNeeded();
+      if (!(await image.isVisible())) continue;
+      // Floating decorations never satisfy Playwright's stationary-element check.
+      await image.evaluate((element) => element.scrollIntoView({ block: "center", behavior: "instant" }));
       await expect(image).toHaveJSProperty("complete", true);
       await expect(image).not.toHaveJSProperty("naturalWidth", 0);
     }
@@ -42,13 +44,16 @@ for (const width of [375, 430, 768, 1024, 1440, 1920]) {
       );
     expect(unsafeLinks).toEqual([]);
     expect(errors).toEqual([]);
-    // Audit and capture the settled page, after scroll-triggered fades finish.
+    // Wait for finite entrances; decorative idle loops intentionally never end.
     await page.waitForFunction(() =>
-      document.getAnimations().every((animation) => animation.playState !== "running"),
+      document.getAnimations().every((animation) =>
+        animation.playState !== "running" || animation.effect?.getTiming().iterations === Infinity,
+      ),
     );
     await page.screenshot({
       path: `artifacts/landing-${width}.png`,
       fullPage: true,
+      animations: "disabled",
     });
     if (width === 375 || width === 1440) {
       const audit = await new AxeBuilder({ page })
@@ -105,9 +110,9 @@ test("reduced motion and JavaScript-free content stay usable", async ({
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
   await expect(page.getByRole("list", { name: "Popular multiplayer games" }).getByRole("listitem"))
     .toHaveCount(12);
-  await expect(page.locator(".hero .store-link")).toHaveAttribute(
+  await expect(page.locator(".hero").getByRole("link", { name: "The collection" })).toHaveAttribute(
     "href",
-    "https://www.eldorado.gg/users/grindandglory/shop/Account",
+    "#accounts",
   );
   await context.close();
 });

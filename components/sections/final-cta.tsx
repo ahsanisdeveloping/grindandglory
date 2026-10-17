@@ -6,7 +6,7 @@ import { Typewriter } from "@/components/ui/typewriter";
 
 export function FinalCTA() {
   return (
-    <Section className="final-cta theme-purple" aria-labelledby="final-title">
+    <Section id="contact" tabIndex={-1} className="final-cta theme-purple" aria-labelledby="final-title">
       <Container className="final-cta__layout">
         <div>
           <h2 id="final-title" data-animate="final-title">

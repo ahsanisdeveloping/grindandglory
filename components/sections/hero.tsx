@@ -1,61 +1,29 @@
-import { ArrowDown } from "lucide-react";
-import { Container } from "@/components/layout/container";
-import { GrainGradient } from "@/components/ui/grain-gradient";
-import { Button } from "@/components/ui/button";
-import { Eyebrow } from "@/components/ui/eyebrow";
-import { StoreLink } from "@/components/ui/store-link";
-import { HeroHeadline } from "./hero-headline";
-import { site } from "@/data/site";
+import { BrandLogo } from "@/components/hero/brand-logo";
+import { FloatingDecorations } from "@/components/hero/floating-decorations";
+import { HeroNavigation } from "@/components/hero/hero-navigation";
+import { PlatformIcons } from "@/components/hero/platform-icons";
+import { MascotViewport } from "@/components/three/mascot/mascot-viewport";
+import { MobileMenu } from "@/components/layout/mobile-menu";
 import styles from "./hero.module.css";
-import { ScrollController } from "@/components/three/scroll-controller";
 
 export function Hero() {
   return (
-    <section className={`hero ${styles.hero}`} aria-labelledby="hero-title" data-animate="hero">
-      <div className={styles.background} aria-hidden="true">
-        <GrainGradient
-          colorLight="#f5f5f2"
-          colorMid="#e6dce5"
-          colorDark="#c7b8c5"
-          angle={0}
-          position={0}
-          curve={0.48}
-          softness={0.24}
-          scale={1}
-          grain={0.32}
-          grainSize={1}
-          seed={1}
-          speed={1}
-          className={styles.gradient}
-        />
+    <section className={`hero ${styles.hero}`} aria-labelledby="hero-title">
+      <BrandLogo />
+      <div className={styles.mobileMenu}><MobileMenu /></div>
+      <div className={styles.left}>
+        <span className={styles.pill}>premium gaming accounts</span>
+        <h1 id="hero-title">rare accounts.<br />real flex.</h1>
+        <HeroNavigation />
       </div>
-      <Container className={styles.content}>
-        <div className={`hero-topline ${styles.topline}`}>
-          <Eyebrow>{site.hero.eyebrow}</Eyebrow>
-        </div>
-        <div className={`hero-stage ${styles.stage}`}>
-          <HeroHeadline />
-        </div>
-        <div className={styles.objectStage} data-controller-anchor>
-          <div className={styles.orbit} aria-hidden="true" />
-          <ScrollController />
-          <span className={styles.objectLabel}>Less grind. More play.</span>
-          <span className={styles.objectIndex}>G&G / PLAYER ONE</span>
-        </div>
-        <div className={`hero-bottom ${styles.bottom}`} data-animate="hero-copy">
-          <p>{site.hero.copy}</p>
-          <div className={`hero-actions ${styles.actions}`}>
-            <Button asChild>
-              <a href="#about">
-                Explore Grind&Glory
-                <ArrowDown aria-hidden="true" />
-              </a>
-            </Button>
-            <StoreLink variant="ghost" />
-          </div>
-        </div>
-        <div className={styles.scrollNote}><ArrowDown size={14} aria-hidden="true" /> Scroll to make your move</div>
-      </Container>
+      <div className={styles.mascot}><MascotViewport /></div>
+      <div className={styles.right}>
+        <span className={styles.pill}>meet your new grind mate</span>
+        <h2>we do the grind.<br />you get the glory.</h2>
+        <p>Premium gaming progression,<br className={styles.desktopBreak} /> achievement and rarity, made simple.</p>
+        <PlatformIcons />
+      </div>
+      <FloatingDecorations />
     </section>
   );
 }

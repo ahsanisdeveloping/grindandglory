@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import purpleMark from "@/app/assets/iconlogopurple.png";
 import whiteMark from "@/app/assets/iconlogowhite.png";
 import { cn } from "@/lib/utils";
@@ -34,7 +35,7 @@ export function Logo({
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 }) {
   return (
-    <a
+    <Link
       href="/#top"
       className={cn("logo", className)}
       aria-label="Grind and Glory, back to top"
@@ -49,6 +50,6 @@ export function Logo({
         className="logo__mark"
       />
       <span className="logo__wordmark relative top-[6px]">Grind&Glory</span>
-    </a>
+    </Link>
   );
 }
